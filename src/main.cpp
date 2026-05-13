@@ -45,13 +45,6 @@ void check_command(const char *command)
   printf("Invalid command: %s. Use: LED <ON/OFF/TOGGLE>\n\r", command);
 }
 
-void convert_to_uppercase(char *str)
-{
-  for (size_t i = 0; str[i] != '\0'; i++)
-  {
-    str[i] = toupper(str[i]);
-  }
-}
 
 void loop() {
   printf("Enter a command: LED ON / LED OFF\n\r");
@@ -65,7 +58,7 @@ void loop() {
   convert_to_uppercase(stat);
   
 #ifdef DEBUG
-  printf("Debug: Received input - stat: '%s', command: '%s'\n\r", stat, command);
+  printf("Debug: Received input - stat: '%s', command: '%s'\n\r", command, stat);
 #endif
   if (strcmp(command, "LED") == 0)
   {

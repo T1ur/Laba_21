@@ -28,6 +28,6 @@ led_state_t get_led_state(led_t *led);
 led_state_t set_led_state(led_t *led, led_state_t new_state);
 void led_update(led_t *led);
 
-
+void convert_to_uppercase(char *str);
         
 #endif // DD_LED_H

@@ -1,4 +1,5 @@
 #include "dd_led.h"
+#include <ctype.h>
 
 void setup_led(led_t *led, int pin, void (*write_func)(uint8_t, uint8_t), void (*set_func)(uint8_t, uint8_t)){
     led->pin = pin;
@@ -38,3 +39,10 @@ void led_update(led_t *led)
     led->write(led->pin, led->state);
 }
 
+void convert_to_uppercase(char *str)
+{
+  for (size_t i = 0; str[i] != '\0'; i++)
+  {
+    str[i] = toupper(str[i]);
+  }
+}

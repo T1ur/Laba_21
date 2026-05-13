@@ -23,3 +23,4 @@ int read_ter(FILE *stream){                     // Custom read function to read 
     while(!Serial.available()); 
     return Serial.read();
 }
+
