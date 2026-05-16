@@ -17,23 +17,27 @@ void setup() {
 
 
 void loop() {
-  printf("Password: ");
-  scanf("%s", code);                         // Read the entered password code from the keypad stream
-  if(strcmp(code, correct_code) == 0){       // Compare the entered code with the correct code
+  printf("Code:");
+  scanf("%4s", code);
+  if(strcmp(code, correct_code) == 0) {
     lcd_clear();
-    printf("Access Granted\n");
-    turn_on_led(&GREEN);                      // Turn on the green LED
-    led_update(&GREEN);                       // Update the state of the green LED
-    delay(led_stay);                          // Keep the LED on for a specified duration
-    turn_off_led(&GREEN);                     // Turn off the green LED
-    led_update(&GREEN);                       // Update the state of the green LED
+    printf("Okay");
+    turn_on_led(&GREEN);                    // Turn on the green LED
+    led_update(&GREEN);                     // Update the state of the green LED
+    delay(led_stay);                        // Keep the LED on for a specified duration
+    turn_off_led(&GREEN);                   // Turn off the green LED
+    led_update(&GREEN);                     // Update the state of the green LED
+    lcd_clear();
+    delay(led_stay);                        // Delay before the next input prompt
   } else {
     lcd_clear();
-    printf("Access Denied\n");
-    turn_on_led(&RED);                        // Turn on the red LED
-    led_update(&RED);                         // Update the state of the red LED
+    printf("Not Okay");
+    turn_on_led(&RED);                      // Turn on the red LED
+    led_update(&RED);                       // Update the state of the red LED
     delay(led_stay);                          // Keep the LED on for a specified duration
-    turn_off_led(&RED);                       // Turn off the red LED
-    led_update(&RED);                         // Update the state of the red LED
+    turn_off_led(&RED);                     // Turn off the red LED
+    led_update(&RED);                       // Update the state of the red LED
+    lcd_clear();
+    delay(led_stay);                        // Delay before the next input prompt
   }
 }
