@@ -8,4 +8,5 @@ void setup_terminal();                      // Function to initialize the termin
 int write_ter(char str, FILE *stream);      // Function to write a character to the terminal stream
 int read_ter(FILE *stream);                 // Function to read a character from the terminal stream
 
+
 #endif // _TERMINAL_H

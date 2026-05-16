@@ -35,10 +35,14 @@ int lcd_print(char str, FILE *stream){          // Custom write function to send
     return 0;                                   // Return 0 to indicate successful write
 }
 
-int keypad_read(FILE *stream){                     // Custom read function to read a character from the keypad stream
+int keypad_read(FILE *stream){                      // Custom read function to read a character from the keypad stream
     char key = keypad.getKey();
     while (key == NO_KEY) {
         key = keypad.getKey();
     }
     return key;
+}
+
+void lcd_clear(){
+    lcd.clear();                                    // Clear the LCD display
 }

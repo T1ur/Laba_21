@@ -2,6 +2,7 @@
 #define DD_LED_H        // Include guard to prevent multiple inclusions of this header file
 
 #include <stdio.h>      // Standard input/output library for C
+#include "config.h"     
 
 #define OUTPUT_LED 1    // Define for setting pin mode to output for the LED
 
