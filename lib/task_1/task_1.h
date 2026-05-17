@@ -3,8 +3,8 @@
 
 #include "config.h"
 #include "dd_led.h"
+#include "dd_button.h"
 // Function declarations
-void task1_init();
-void task1_run();
+void task1_run(led_t *green_led, button_t *button, void (*delay)(unsigned long ms));
 
 #endif // TASK_1_H

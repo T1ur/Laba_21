@@ -29,5 +29,8 @@
 #define BUTTON_1       7          // Pin connected to the button task 1
 #define BUTTON_2       6          // Pin connected to the button increment
 #define BUTTON_3       5          // Pin connected to the button decrement
+#define PAUSE_DURATION  200         // Duration (in milliseconds) to debounce button presses
+#define ONE             1           // Constant representing the "on" state for the LED
+#define ZERO            0           // Constant representing the "off" state for the LED
 #endif // CONFIG_H
 

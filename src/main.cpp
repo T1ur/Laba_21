@@ -5,6 +5,7 @@
 #include "config.h"
 #include <string.h>
 #include "dd_button.h"
+#include "task_1.h"
 
 static led_t green_led;
 static button_t button;
@@ -16,14 +17,5 @@ void setup() {
 
 
 void loop() {
-  static bool state = false;
-  static bool lastButtonState = LOW;
-  bool buttonState = dd_button_state(&button);
-  if (lastButtonState == HIGH && buttonState == LOW) {
-  state = !state;           
-  set_led_state(&green_led, (led_state_t)state);
-  led_update(&green_led);      
-  delay(200);
- }
-  lastButtonState = buttonState;
+  task1_run(&green_led, &button, delay);
 }
