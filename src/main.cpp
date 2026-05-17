@@ -4,40 +4,26 @@
 #include "dd_lcd_keypad.h"
 #include "config.h"
 #include <string.h>
+#include "dd_button.h"
 
-static led_t RED;
-static led_t GREEN;
-static char code[code_length + 1];          // Buffer to store the entered password code, +1 for null terminator
+static led_t green_led;
+static button_t button;
 
 void setup() {
-  perif_init();
-  setup_led(&RED, RED_LED_PIN, digitalWrite, pinMode);
-  setup_led(&GREEN, GREEN_LED_PIN, digitalWrite, pinMode);
+  setup_led(&green_led, GREEN_LED_PIN, digitalWrite, pinMode);
+  dd_button_init(&button, BUTTON_1, digitalRead, pinMode);
 }
 
 
 void loop() {
-  printf("Code:");
-  scanf("%4s", code);
-  if(strcmp(code, correct_code) == 0) {
-    lcd_clear();
-    printf("Okay");
-    turn_on_led(&GREEN);                    // Turn on the green LED
-    led_update(&GREEN);                     // Update the state of the green LED
-    delay(led_stay);                        // Keep the LED on for a specified duration
-    turn_off_led(&GREEN);                   // Turn off the green LED
-    led_update(&GREEN);                     // Update the state of the green LED
-    lcd_clear();
-    delay(led_stay);                        // Delay before the next input prompt
-  } else {
-    lcd_clear();
-    printf("Not Okay");
-    turn_on_led(&RED);                      // Turn on the red LED
-    led_update(&RED);                       // Update the state of the red LED
-    delay(led_stay);                          // Keep the LED on for a specified duration
-    turn_off_led(&RED);                     // Turn off the red LED
-    led_update(&RED);                       // Update the state of the red LED
-    lcd_clear();
-    delay(led_stay);                        // Delay before the next input prompt
-  }
+  static bool state = false;
+  static bool lastButtonState = LOW;
+  bool buttonState = dd_button_state(&button);
+  if (lastButtonState == HIGH && buttonState == LOW) {
+  state = !state;           
+  set_led_state(&green_led, (led_state_t)state);
+  led_update(&green_led);      
+  delay(200);
+ }
+  lastButtonState = buttonState;
 }

@@ -25,5 +25,9 @@
 #define code_length   4           // Length of the password code
 #define correct_code  "1234"      // Correct password code
 #define led_stay      1000        // Duration (in milliseconds) to keep the LED on after a successful password entry
+
+#define BUTTON_1       7          // Pin connected to the button task 1
+#define BUTTON_2       6          // Pin connected to the button increment
+#define BUTTON_3       5          // Pin connected to the button decrement
 #endif // CONFIG_H
 
