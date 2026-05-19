@@ -1,6 +1,9 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define PULL_UP_INPUT  0x2        // Define for setting pin mode to input with pull-up for the button
+
+
 #define DEBUG           // Uncomment to enable debug output
 
 #define BAUDRATE        9600        // Serial communication baud rate
