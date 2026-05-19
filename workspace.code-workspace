@@ -1,0 +1,50 @@
+{
+	"folders": [],
+	"settings": {},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+
+			{
+				"args": [
+					"--extensionDevelopmentPath=${workspaceFolder}"
+				],
+				"name": "Launch Extension",
+				"outFiles": [
+					"${workspaceFolder}/out/**/*.js"
+				],
+				"preLaunchTask": "npm",
+				"request": "launch",
+				"type": "extensionHost"
+			},
+			{
+				"type": "lldb",
+				"request": "launch",
+				"name": "Custom launch",
+				"targetCreateCommands": [
+					"target create ${workspaceFolder}/<program>"
+				],
+				"processCreateCommands": [
+					"settings set target.run-args value1 value2 value3",
+					"process launch"
+				]
+			},
+			{
+				"type": "lldb",
+				"request": "launch",
+				"name": "Launch",
+				"program": "${workspaceFolder}/<program>",
+				"args": [],
+				"cwd": "${workspaceFolder}"
+			},
+			{
+				"type": "lldb",
+				"request": "attach",
+				"name": "Attach",
+				"pid": "${command:pickMyProcess}" // use ${command:pickProcess} to pick other users' processes
+				
+			}
+			
+		]
+	}
+}

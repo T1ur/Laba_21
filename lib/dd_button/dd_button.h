@@ -4,7 +4,7 @@
 #include "config.h"
 #include <stdio.h>      // Standard input/output library for C
 
-#define INPUT_BUTTON  0        // Define for setting pin mode to input for the button
+#define INPUT_PULLUP_BUTTON  0x2        // Define for setting pin mode to input with pull-up for the button
 
 typedef enum {          // Enumeration for button states
     BUTTON_LOW = 0,

@@ -8,7 +8,7 @@ void dd_button_init(button_t *button, uint8_t pin, int (*read_func)(uint8_t), vo
     button->set = set_func;     // Assign the set function pointer
 
     // Set the pin mode for the button using the provided set function
-    button->set(button->pin, INPUT_BUTTON);
+    button->set(button->pin, INPUT_PULLUP_BUTTON);
 }
 
 int dd_button_state(button_t *button) {
