@@ -4,7 +4,6 @@
 #include "config.h"
 #include <stdio.h>      // Standard input/output library for C
 
-
 typedef enum {          // Enumeration for button states
     BUTTON_LOW = 0,
     BUTTON_HIGH
@@ -21,5 +20,4 @@ typedef struct          // Structure to represent a button with its properties a
 // Function declarations
 void dd_button_init(button_t *button, uint8_t pin, int (*read_func)(uint8_t), void (*set_func)(uint8_t, uint8_t));
 int dd_button_state(button_t *button);
-
 #endif // DD_BUTTON_H

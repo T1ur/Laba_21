@@ -25,25 +25,16 @@ void os_seq1_setup() {
  * @param timer - идентификатор таймера
  */
 void timer_handle_interrupts(int timer) {
-    Serial.print("goodbye from timer: ");
-    task1_run(&green_led, &button, delay);
+    task1_run(&green_led, &button);
 }
 
 void setup() {
   perif_init();
+  os_seq1_setup();
   setup_led(&green_led, GREEN_LED_PIN, digitalWrite, pinMode);
   dd_button_init(&button, BUTTON_1, digitalRead, pinMode);
 }
-
-
-
+//TODO: Create a function for button/action
 void loop() {
   
-  if(!dd_button_state(&button)) {
-    turn_on_led(&green_led);
-    led_update(&green_led);
-  } else {
-    turn_off_led(&green_led);
-    led_update(&green_led);
-  }
 }

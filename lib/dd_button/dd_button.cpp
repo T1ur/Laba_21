@@ -12,5 +12,5 @@ void dd_button_init(button_t *button, uint8_t pin, int (*read_func)(uint8_t), vo
 }
 
 int dd_button_state(button_t *button) {
-    return button->read(button->pin); // Read and return the current state of the button using the read function pointer
+    return !button->read(button->pin); // Read and return the current state of the button using the read function pointer (! is used to invert the logic since the button pin is set to pull-up)
 }
